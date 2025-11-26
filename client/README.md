@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+1. # 🚀 BNCC Feedback System - Quest Rolling Week
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Divisi Research and Development (RnD) - BNCC 37**
 
-## Available Scripts
+Website **Feedback Management System** modern yang dirancang untuk mengumpulkan dan mengelola ulasan acara internal BNCC. Aplikasi ini dibangun menggunakan arsitektur **Client-Server** dengan tampilan **Dark Mode Glassmorphism** yang futuristik dan interaktif.
 
-In the project directory, you can run:
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Frontend:** React.js, Tailwind CSS (Custom Glassmorphism UI)
+* **Backend:** Node.js, Express.js
+* **Database:** Local JSON File Storage (`data.json`) - *Persisten tanpa database SQL/NoSQL eksternal.*
+* **Tools:** Git, Axios, Phosphor Icons/SVG.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## ✨ Fitur Unggulan
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎨 User Interface (Frontend)
+* **Premium Dark Mode:** Tampilan visual modern dengan dekorasi *glowing orbs*.
+* **Glassmorphism Effect:** Panel semi-transparan dengan efek *blur* yang estetis.
+* **Smooth Animations:** Transisi halaman, *hover effects*, dan *modal popup* yang halus.
+* **Responsive Design:** Layout yang menyesuaikan layar (Grid & Flexbox).
 
-### `npm run build`
+### ⚙️ Admin Dashboard (Backend & Logic)
+* **Real-time Statistics:** Ringkasan jumlah feedback, rata-rata rating, dan status *pending*.
+* **Advanced Filtering:** Filter berdasarkan status (**Open**, **In-Review**, **Resolved**).
+* **Smart Sorting:** Urutkan data berdasarkan **Terbaru** atau **Rating Tertinggi**.
+* **Live Search:** Pencarian data peserta atau nama event secara instan.
+* **Export Data:** Fitur unduh data ke format **CSV/Excel** untuk pelaporan.
+* **CRUD Lengkap:** Create (Form), Read (Table), Update (Status & Comment), Delete.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💻 Cara Menjalankan (Run Lokal)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pastikan **Node.js** sudah terinstal di komputer Anda.
 
-### `npm run eject`
+### 1. Clone Repository
+```bash
+### 1. Clone Repository
+```bash
+git clone https://github.com/Jessssswill/BNCC-Feedback-Quest.git
+cd BNCC-Feedback-Quest
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Jalankan Backend (server)
+cd server
+npm install
+node index.js    
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Jalankan Frontend (client)
+cd client
+npm install
+npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Struktur project
+root/
+├── server/             # Backend (Express API)
+│   ├── data.json       # File Database Lokal
+│   ├── index.js        # Server Entry Point & API Routes
+│   └── package.json
+│
+├── client/             # Frontend (React Application)
+│   ├── src/
+│   │   ├── App.js      # Logika Utama UI & Fitur
+│   │   └── index.css   # Tailwind Configuration
+│   └── package.json
+│
+├── .gitignore          # Konfigurasi Git
+└── README.md           # Dokumentasi Project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. API ENDPOINTS
+GET	    /api/feedback	    Mengambil seluruh data feedback
+POST	/api/feedback	    Mengirim feedback baru dari form
+PUT	    /api/feedback/:id	Mengupdate status atau komentar (Admin)
+DELETE	/api/feedback/:id	Menghapus data feedback

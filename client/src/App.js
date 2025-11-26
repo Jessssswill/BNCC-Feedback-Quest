@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 
+/* ============================================================
+   🎨 GLOBAL SEMI-NEON CYBERPUNK DECORATION (TETAP DIPERTAHANKAN)
+   ============================================================ */
 const NeonBackground = () => (
   <>
+    {/* Soft Cyber Grid */}
     <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20" />
+
+    {/* Soft Cyan Glow */}
     <div className="pointer-events-none fixed top-[10%] left-[5%] w-[420px] h-[420px] bg-cyan-500/20 blur-[140px] animate-glow" />
+
+    {/* Soft Purple Glow */}
     <div className="pointer-events-none fixed bottom-[10%] right-[5%] w-[420px] h-[420px] bg-purple-500/20 blur-[140px] animate-glow delay-500" />
   </>
 );
 
+/* ============================================================
+   🔵 MAIN APP WRAPPER
+   ============================================================ */
 function App() {
   const [view, setView] = useState("form");
   const [pageAnimation, setPageAnimation] = useState("softFade");
@@ -16,9 +27,11 @@ function App() {
     <div className="min-h-screen bg-[#0d1525] text-gray-200 font-sans relative overflow-hidden">
       <NeonBackground />
 
+      {/* ===================== 🔷 NAVBAR ===================== */}
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0d1525]/80 backdrop-blur-xl shadow-[0_0_30px_rgba(0,255,255,0.08)] transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,255,255,0.15)]">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center max-w-6xl">
 
+          {/* LOGO */}
           <div
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => setView("form")}
@@ -37,6 +50,7 @@ function App() {
             </div>
           </div>
 
+          {/* SWITCH VIEW */}
           <div className="flex bg-white/5 p-1 rounded-xl border border-white/10 backdrop-blur-md shadow-inner">
             {["form", "admin"].map((tab) => (
               <button
@@ -59,19 +73,24 @@ function App() {
         </div>
       </nav>
 
+      {/* ===================== 🔷 MAIN CONTENT ===================== */}
       <div className={`container mx-auto max-w-6xl p-6 md:p-10 relative z-10 animate-${pageAnimation}`}>
         {view === "form" ? <FeedbackForm /> : <AdminPanel />}
       </div>
 
+      {/* ===================== 🔷 FOOTER ===================== */}
       <footer className="text-center text-slate-500 text-sm py-10 border-t border-white/10">
         © 2025 BNCC Research & Development
         <span className="text-cyan-500/50"> | </span>
-        Semi-Neon Glass UI
+        Jessen & Annisa
       </footer>
     </div>
   );
 }
 
+/* ============================================================
+   🔵 FEEDBACK FORM (TETAP SAMA, TIDAK DIHAPUS)
+   ============================================================ */
 function FeedbackForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -285,6 +304,9 @@ function FeedbackForm() {
   );
 }
 
+/* ============================================================
+   🔵 ADMIN PANEL (DENGAN UPDATE KOLOM DATE)
+   ============================================================ */
 function AdminPanel() {
   const [feedback, setFeedback] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -350,6 +372,7 @@ function AdminPanel() {
         <p className="text-blue-200/80 mt-2">Manage all feedback submissions</p>
       </div>
 
+      {/* TOOLBAR */}
       <div className="bg-white/5 p-5 rounded-2xl border border-white/10 backdrop-blur-xl shadow-lg flex flex-col md:flex-row gap-4 justify-between items-center">
         
         {/* LEFT: SEARCH */}
@@ -364,6 +387,7 @@ function AdminPanel() {
           />
         </div>
 
+        {/* RIGHT: FILTERS & ACTIONS */}
         <div className="flex gap-3 w-full md:w-auto justify-end overflow-x-auto pb-1 md:pb-0">
           <select
             value={filterStatus}
@@ -394,6 +418,7 @@ function AdminPanel() {
         </div>
       </div>
 
+      {/* ==================== TABLE (ADDED DATE COLUMN) ==================== */}
       <div className="bg-white/5 backdrop-blur-lg rounded-3xl border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.1)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
@@ -402,6 +427,7 @@ function AdminPanel() {
                 <th className="p-6 font-bold">Name</th>
                 <th className="p-6 font-bold">Division</th>
                 <th className="p-6 font-bold text-center">Rating</th>
+                <th className="p-6 font-bold text-center">Date</th> {/* 👈 KOLOM BARU */}
                 <th className="p-6 font-bold text-center">Status</th>
                 <th className="p-6 font-bold text-center">Actions</th>
               </tr>
@@ -410,14 +436,14 @@ function AdminPanel() {
             <tbody className="divide-y divide-white/5 text-sm">
               {loading ? (
                 <tr>
-                  <td className="p-10 text-center text-slate-400" colSpan="5">
+                  <td className="p-10 text-center text-slate-400" colSpan="6">
                     <span className="inline-block w-6 h-6 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mr-2"></span>
                     Loading data...
                   </td>
                 </tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td className="p-10 text-center text-slate-500" colSpan="5">
+                  <td className="p-10 text-center text-slate-500" colSpan="6">
                     No feedback found.
                   </td>
               </tr>
@@ -442,6 +468,11 @@ function AdminPanel() {
                         {f.rating}
                       </span> 
                       <span className="text-yellow-400/50 ml-1">★</span>
+                    </td>
+
+                    {/* 🟢 DATA TANGGAL (BARU) */}
+                    <td className="p-6 text-center text-slate-400 font-mono text-xs">
+                      {new Date(f.createdAt).toLocaleDateString()}
                     </td>
 
                     <td className="p-6 text-center">
@@ -485,6 +516,7 @@ function AdminPanel() {
         </div>
       </div>
 
+      {/* 🟦 MODAL DETAIL (POPUP) */}
       {selected && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 animate-softFade p-4">
           <div className="bg-[#0f1b2d] p-8 rounded-3xl w-full max-w-md border border-cyan-300/20 shadow-[0_0_50px_rgba(0,255,255,0.15)] animate-softScale relative">

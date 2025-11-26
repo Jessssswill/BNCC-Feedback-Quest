@@ -58,5 +58,41 @@
     "suggestion": "",
     "createdAt": "2025-11-25T16:48:39.125Z",
     "status": "in-review"
+  },
+  {
+    "id": 1764140157864,
+    "name": "jess",
+    "email": "jessen@binus.ac.id",
+    "eventName": "workshop",
+    "division": "LnT",
+    "rating": 5,
+    "comment": "",
+    "suggestion": "",
+    "createdAt": "2025-11-26T06:55:57.864Z",
+    "status": "open"
+  },
+  {
+    "id": 1764140181877,
+    "name": "kenr",
+    "email": "keneri@gmail.com",
+    "eventName": "download",
+    "division": "PR",
+    "rating": 4,
+    "comment": "",
+    "suggestion": "",
+    "createdAt": "2025-11-26T06:56:21.877Z",
+    "status": "open"
+  },
+  {
+    "id": 1764140468613,
+    "name": "siska",
+    "email": "siska@gmauil.com",
+    "eventName": "seminar",
+    "division": "EEO",
+    "rating": 4,
+    "comment": "",
+    "suggestion": "",
+    "createdAt": "2025-11-26T07:01:08.613Z",
+    "status": "open"
   }
 ]
