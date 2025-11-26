@@ -1,4 +1,4 @@
-1. # BNCC Feedback System - Quest Rolling Week
+# 1. BNCC Feedback System - Quest Rolling Week
 
 **Divisi Research and Development (RnD) - BNCC 37**
 
@@ -13,7 +13,7 @@ Website **Feedback Management System** modern yang dirancang untuk mengumpulkan 
 * **Tools:** Git, Axios, Phosphor Icons/SVG.
 
 
-## ✨ Fitur Unggulan
+## Fitur Unggulan
 
 ### User Interface (Frontend)
 * **Premium Dark Mode:** Tampilan visual modern dengan dekorasi *glowing orbs*.
@@ -57,15 +57,20 @@ npm start
 ### 4. Struktur project
 ```bash
 RND/
-├── Client/                 # Frontend (React Application)
-│   ├── Server/             # Backend (Express API)
-│   ├    ├── data.json      # File Database Lokal
-│   ├    ├── index.js       # Server Entry Point & API Routes
-│   ├    └── package.json
+├── Client/                # Frontend (React Application)
+│   ├── Server/            # Backend (Express API)
+│   ├   ├── data.json      # File Database Lokal
+│   ├   ├── index.js       # Server Entry Point & API Routes
+│   ├   └── package.json
 │   ├── src/
-│   │   ├── App.js          # Logika Utama UI & Fitur
-│   │   ├── index.css       # Tailwind Configuration
-│   │   └── package.json        
+│       ├── Components      # Logika Utama UI & Fitur
+│       │   ├── AdminPanes.js
+│       │   ├── FeedbackForm.js
+│       │   ├── Navbar.js
+│       │   ├── NeonBg.js
+│       ├── App.js          # Frontend
+│       ├── index.css       # Tailwind Configuration
+│       └── package.json        
 │
 ├── .gitignore          # Konfigurasi Git
 └── README.md           # Dokumentasi Project
