@@ -1,42 +1,81 @@
-# 🚀 BNCC Feedback System - Quest Rolling Week
+1. # 🚀 BNCC Feedback System - Quest Rolling Week
 
 **Divisi Research and Development (RnD) - BNCC 37**
 
-Website CRUD berbasis **React.js** dan **Express.js** untuk mengumpulkan dan mengelola feedback acara internal BNCC. Proyek ini menggunakan **JSON File** sebagai database lokal (tanpa perlu install MySQL/MongoDB) sehingga mudah dijalankan di mana saja.
+Website **Feedback Management System** modern yang dirancang untuk mengumpulkan dan mengelola ulasan acara internal BNCC. Aplikasi ini dibangun menggunakan arsitektur **Client-Server** dengan tampilan **Dark Mode Glassmorphism** yang futuristik dan interaktif.
+
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React.js, Tailwind CSS (Glassmorphism UI)
+* **Frontend:** React.js, Tailwind CSS (Custom Glassmorphism UI)
 * **Backend:** Node.js, Express.js
-* **Database:** Local JSON File (`data.json`)
-* **Icons:** SVG Icons (No external library heavy dependency)
+* **Database:** Local JSON File Storage (`data.json`) - *Persisten tanpa database SQL/NoSQL eksternal.*
+* **Tools:** Git, Axios, Phosphor Icons/SVG.
 
 
-## ✨ Fitur Utama
+## ✨ Fitur Unggulan
 
-### 📝 Public Form (User)
-* Input data peserta (Nama, Email, Divisi).
-* Input detail acara (Nama Event, Rating Bintang).
-* Input feedback (Komentar & Saran).
-* Validasi form sederhana.
-* Tampilan **Dark Mode Glassmorphism** yang modern.
+### 🎨 User Interface (Frontend)
+* **Premium Dark Mode:** Tampilan visual modern dengan dekorasi *glowing orbs*.
+* **Glassmorphism Effect:** Panel semi-transparan dengan efek *blur* yang estetis.
+* **Smooth Animations:** Transisi halaman, *hover effects*, dan *modal popup* yang halus.
+* **Responsive Design:** Layout yang menyesuaikan layar (Grid & Flexbox).
 
-### 📊 Admin Dashboard (Pengurus)
-* **Overview Statistik:** Melihat Total Feedback, Rata-rata Rating, dan Pending Review secara *real-time*.
-* **Table Management:** Melihat semua data feedback yang masuk.
-* **Search & Filter:** Cari berdasarkan Nama/Event dan filter berdasarkan Status (Open, In-Review, Resolved).
-* **Sorting:** Urutkan data berdasarkan Terbaru atau Rating Tertinggi.
-* **CRUD Actions:** Edit status feedback dan Hapus feedback.
-* **Export CSV:** Fitur untuk mendownload rekap data feedback ke dalam format Excel/CSV.
-* **Skeleton Loading:** Animasi loading yang smooth saat mengambil data.
+### ⚙️ Admin Dashboard (Backend & Logic)
+* **Real-time Statistics:** Ringkasan jumlah feedback, rata-rata rating, dan status *pending*.
+* **Advanced Filtering:** Filter berdasarkan status (**Open**, **In-Review**, **Resolved**).
+* **Smart Sorting:** Urutkan data berdasarkan **Terbaru** atau **Rating Tertinggi**.
+* **Live Search:** Pencarian data peserta atau nama event secara instan.
+* **Export Data:** Fitur unduh data ke format **CSV/Excel** untuk pelaporan.
+* **CRUD Lengkap:** Create (Form), Read (Table), Update (Status & Comment), Delete.
 
 
 ## 💻 Cara Menjalankan (Run Lokal)
 
-Pastikan komputer Anda sudah terinstal **Node.js**.
+Pastikan **Node.js** sudah terinstal di komputer Anda.
 
 ### 1. Clone Repository
-Buka terminal dan clone project ini:
 ```bash
-git clone [https://github.com/USERNAME-GITHUB-KAMU/NAMA-REPO-KAMU.git](https://github.com/USERNAME-GITHUB-KAMU/NAMA-REPO-KAMU.git)
-cd NAMA-REPO-KAMU
+git clone https://github.com/Jessssswill/BNCC-Feedback-Quest.git
+cd BNCC-Feedback-Quest
+```
+
+### 2. Jalankan Backend (server)
+```bash
+cd server
+npm install
+node index.js
+```
+
+### 3. Jalankan Frontend (client)
+``` bash
+cd client
+npm install
+npm start
+```
+
+### 4. Struktur project
+```bash
+root/
+├── server/             # Backend (Express API)
+│   ├── data.json       # File Database Lokal
+│   ├── index.js        # Server Entry Point & API Routes
+│   └── package.json
+│
+├── client/             # Frontend (React Application)
+│   ├── src/
+│   │   ├── App.js      # Logika Utama UI & Fitur
+│   │   └── index.css   # Tailwind Configuration
+│   └── package.json
+│
+├── .gitignore          # Konfigurasi Git
+└── README.md           # Dokumentasi Project
+```
+
+### 5. API ENDPOINTS
+```bash
+GET	    /api/feedback	    Mengambil seluruh data feedback
+POST	/api/feedback	    Mengirim feedback baru dari form
+PUT	    /api/feedback/:id	Mengupdate status atau komentar (Admin)
+DELETE	/api/feedback/:id	Menghapus data feedback
+```
